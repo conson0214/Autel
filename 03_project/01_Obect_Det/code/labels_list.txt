@@ -1,0 +1,7 @@
+Background
+Person
+Vehicle
+Car
+Boat
+Animal
+Rider
