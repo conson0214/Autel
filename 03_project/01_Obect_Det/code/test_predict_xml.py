@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# coding=utf-8
 
 import tensorflow as tf
 import numpy as np
@@ -54,9 +54,6 @@ def read_xml(xml_path):
     return tree
 
 def write_xml(tree, out_path):
-  '''将xml文件写出
-    tree: xml树
-    out_path: 写出路径'''
   tree.write(out_path, encoding="utf-8", xml_declaration=True)
 
 
@@ -124,5 +121,10 @@ if sys.argv.__len__() <= 5:
 else:
     label_file_name = sys.argv[5]
 
+# img_name = 'test.jpg'
+# xml_in_name = 'test.xml'
+# xml_out_name = 'result.xml'
+# pb_file_name = 'graph_class6_nasnet.pb'
+# label_file_name = 'labels_list.txt'
+
 main(img_name, xml_in_name, xml_out_name, pb_file_name, label_file_name)
-input("Prease <enter>")
