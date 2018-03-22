@@ -5,7 +5,7 @@ import numpy as np
 import xml.etree.ElementTree as ET
 import cv2
 import sys
-
+import os
 
 def preprocess_func(input_width, input_height, input_depth, input_mean,
                       input_std):
@@ -57,7 +57,16 @@ def write_xml(tree, out_path):
   tree.write(out_path, encoding="utf-8", xml_declaration=True)
 
 
-def main(img_name, xml_in_name, xml_out_name, pb_file_name, label_file_name):
+def getallfile(path, target):
+    allfile = []
+    for dirpath, dirnames, filenames in os.walk(path):
+        for name in filenames:
+            if target in filenames:
+                allfile.append(os.path.join(dirpath, name))
+    return allfile
+
+
+def main(img_name, test_foler, pb_file_name, label_file_name):
     model_info = {}
     model_info['input_width'] = 224
     model_info['input_height'] = 224
